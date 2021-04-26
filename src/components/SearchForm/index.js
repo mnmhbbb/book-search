@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SearchList from '../SearchList';
-import { searchAction } from '../../redux/ducks/search';
+import SearchList from 'components/SearchList';
+import { searchAction } from 'redux/ducks/search';
 
 const SearchForm = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-import Home from './pages/Home';
-import PostForm from './pages/PostForm';
+import Home from 'pages/Home';
+import PostForm from 'pages/PostForm';
 
 function App() {
   return (

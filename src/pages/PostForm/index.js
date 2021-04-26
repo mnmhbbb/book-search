@@ -1,5 +1,5 @@
+import Layout from 'layouts/Layout';
 import React from 'react';
-import Layout from '../../layouts/Layout';
 
 const PostForm = () => {
   return (

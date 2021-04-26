@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '../../layouts/Layout';
-import SearchForm from '../../components/SearchForm';
+import SearchForm from 'components/SearchForm';
+import Layout from 'layouts/Layout';
 
 const Home = () => {
   return (

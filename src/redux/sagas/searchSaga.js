@@ -1,6 +1,6 @@
+import { searchAction } from 'redux/ducks/search';
 import { all, takeLatest, call, put, fork } from 'redux-saga/effects';
-import { searchBookAPI } from '../../api/search';
-import { searchAction } from '../ducks/search';
+import { searchBookAPI } from 'api/search';
 
 function* searchBook(action) {
   const { SEARCH_SUCCESS, SEARCH_FAILURE } = searchAction;
