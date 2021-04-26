@@ -21,6 +21,7 @@ const SearchForm = () => {
     },
     [keyword, dispatch, SEARCH_REQUEST],
   );
+
   return (
     <>
       <form onSubmit={onSubmit}>

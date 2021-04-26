@@ -3,7 +3,7 @@ import { REACT_APP_CLIENT_ID, REACT_APP_CLIENT_SECRET } from '../config';
 
 export async function searchBookAPI(data) {
   try {
-    const response = await axios.get(`/v1/search/book.json?query=${data}&display=100`, {
+    const response = await axios.get(`/v1/search/book.json?query=${data}`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

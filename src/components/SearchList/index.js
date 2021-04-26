@@ -19,10 +19,10 @@ const SearchList = () => {
             </Link>
             <div>
               <strong dangerouslySetInnerHTML={{ __html: `${book.title}` }} />
-              <p>{book.description}</p>
-              <p>저자 : {book.author}</p>
+              <p dangerouslySetInnerHTML={{ __html: `${book.description}` }} />
+              <p dangerouslySetInnerHTML={{ __html: `${book.author}` }} />
+              <p dangerouslySetInnerHTML={{ __html: `${book.publisher}` }} />
               <p>출간일 : {book.pubdate}</p>
-              <p>출판일 : {book.publisher}</p>
             </div>
             <a href={book.link} target="_blank" rel="noreferrer noopener">
               네이버에서 자세히 보기
