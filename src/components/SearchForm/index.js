@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchList from 'components/SearchList';
 import { searchAction } from 'redux/ducks/search';
+import { FormStyle, InputStyle } from './style';
 
 const SearchForm = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const SearchForm = () => {
     function onScroll() {
       if (
         window.scrollY + document.documentElement.clientHeight >
-        document.documentElement.scrollHeight - 30
+        document.documentElement.scrollHeight - 10
       ) {
         if (!loadMoreLoading && bookList.length > 1) {
           count.current += 10;
@@ -44,11 +45,19 @@ const SearchForm = () => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input value={keyword} onChange={onChange} placeholder="책 정보를 검색해보세요!" />
-        <button>검색</button>
-      </form>
-      {bookList.length !== 0 && <SearchList />}
+      <FormStyle onSubmit={onSubmit}>
+        <InputStyle.Group>
+          <InputStyle
+            allowClear
+            value={keyword}
+            size="large"
+            required
+            onChange={onChange}
+            placeholder="책 정보를 입력하세요."
+          />
+        </InputStyle.Group>
+        {bookList.length !== 0 && <SearchList />}
+      </FormStyle>
     </>
   );
 };

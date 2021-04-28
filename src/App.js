@@ -1,18 +1,20 @@
-import NavBar from 'components/NavBar';
-import Home from 'pages/Home';
+import SearchForm from 'components/SearchForm';
 import React, { Suspense } from 'react';
-import { Route, Switch } from 'react-router';
+import { BookOutlined } from '@ant-design/icons';
+import Layout from 'layout';
 
 function App() {
   return (
-    <>
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </Suspense>
-    </>
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <Layout>
+        <a href="/">
+          <h1>
+            책 검색 <BookOutlined />
+          </h1>
+        </a>
+      </Layout>
+      <SearchForm />
+    </Suspense>
   );
 }
 

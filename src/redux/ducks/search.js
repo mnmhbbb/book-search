@@ -29,11 +29,9 @@ const reducers = {
     state.loadMoreLoading = true;
   },
   LOADMORE_SUCCESS: (state, { payload: data }) => {
-    console.log('전', state.bookList, state.count);
     state.loadMoreLoading = false;
     state.loadMoreDone = true;
     state.bookList = state.bookList.concat(data);
-    console.log('후', state.bookList, state.count);
   },
   LOADMORE_FAILURE: (state, { payload: data }) => {
     state.loadMoreLoading = false;
@@ -47,18 +45,6 @@ const slice = createSlice({
   initialState,
   reducers,
 });
-
-// 추가 공부 필요
-// const selectAllState = createSelector(
-//   (state) => state.bookList,
-//   (bookList) => {
-//     return { bookList };
-//   },
-// );
-
-// export const searchSelector = {
-//   all: (state) => selectAllState(state[SEARCH]),
-// };
 
 // 리듀서이름, 리듀서함수, 액션
 export const SEARCH = slice.name;
