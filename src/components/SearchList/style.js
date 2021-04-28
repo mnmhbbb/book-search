@@ -7,8 +7,7 @@ export const Style = styled.ul`
   li {
     width: 250px;
     height: 350px;
-    // background: #e5e5e5;
-    border: 1px solid #000;
+    border: 0.5px solid #000;
     overflow: hidden;
     display: flex;
     flex-direction: column;
