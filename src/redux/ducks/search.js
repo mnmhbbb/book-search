@@ -2,24 +2,42 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // 초기 상태값
 export const initialState = {
-  bookList: [], // API 요청을 통해 받아온 책 정보들 (최대 50개)
-  searchBookLoading: false, // 책 검색 시도 중
-  searchBookDone: false,
-  searchBookError: null,
+  bookList: [], // 검색 결과 목록
+  searchbookLoading: false, // 책 검색 시도 중
+  searchbookDone: false,
+  searchbookError: null,
+  loadMoreLoading: false, // 추가 요청
+  loadMoreDone: false,
+  loadMoreError: null,
 };
 
 const reducers = {
   SEARCH_REQUEST: (state) => {
-    state.searchBookLoading = true;
+    state.searchbookLoading = true;
   },
   SEARCH_SUCCESS: (state, { payload: data }) => {
-    state.searchBookLoading = false;
-    state.searchBookDone = true;
+    state.searchbookLoading = false;
+    state.searchbookDone = true;
     state.bookList = data;
     console.log('~bookList는~', state.bookList);
   },
   SEARCH_FAILURE: (state, data) => {
-    state.searchBookError = data.error;
+    state.searchbookLoading = false;
+    state.searchbookError = data.error;
+  },
+  LOADMORE_REQUEST: (state) => {
+    state.loadMoreLoading = true;
+  },
+  LOADMORE_SUCCESS: (state, { payload: data }) => {
+    console.log('전', state.bookList, state.count);
+    state.loadMoreLoading = false;
+    state.loadMoreDone = true;
+    state.bookList = state.bookList.concat(data);
+    console.log('후', state.bookList, state.count);
+  },
+  LOADMORE_FAILURE: (state, { payload: data }) => {
+    state.loadMoreLoading = false;
+    state.loadMoreError = data;
   },
 };
 

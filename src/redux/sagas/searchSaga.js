@@ -1,6 +1,6 @@
 import { searchAction } from 'redux/ducks/search';
-import { all, takeLatest, call, put, fork } from 'redux-saga/effects';
-import { searchBookAPI } from 'api/search';
+import { all, takeLatest, call, put, fork, throttle } from 'redux-saga/effects';
+import { searchBookAPI, loadmoreAPI } from 'api/search';
 
 function* searchBook(action) {
   const { SEARCH_SUCCESS, SEARCH_FAILURE } = searchAction;
@@ -8,8 +8,19 @@ function* searchBook(action) {
     const result = yield call(searchBookAPI, action.payload);
     yield put(SEARCH_SUCCESS(result));
   } catch (err) {
-    console.dir(err);
+    console.error(err);
     yield put(SEARCH_FAILURE(err));
+  }
+}
+
+function* loadMore(action) {
+  const { LOADMORE_SUCCESS, LOADMORE_FAILURE } = searchAction;
+  try {
+    const result = yield call(loadmoreAPI, action.payload);
+    yield put(LOADMORE_SUCCESS(result));
+  } catch (err) {
+    console.error(err);
+    yield put(LOADMORE_FAILURE(err));
   }
 }
 
@@ -18,6 +29,11 @@ function* watchSearchBook() {
   yield takeLatest(SEARCH_REQUEST, searchBook);
 }
 
+function* watchLoadMore() {
+  const { LOADMORE_REQUEST } = searchAction;
+  yield throttle(5000, LOADMORE_REQUEST, loadMore);
+}
+
 export default function* searchSaga() {
-  yield all([fork(watchSearchBook)]);
+  yield all([fork(watchSearchBook), fork(watchLoadMore)]);
 }

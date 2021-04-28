@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 const SearchList = () => {
   const { bookList } = useSelector((state) => state.search);
@@ -10,13 +9,13 @@ const SearchList = () => {
       <ul>
         {bookList.map((book, i) => (
           <li key={i} style={{ background: '#e5e5e5', border: '2px solid #000' }}>
-            <Link to="/post">
+            <a href={book.link} target="_blank" rel="noreferrer noopener">
               {book.image.length > 0 ? (
                 <img src={book.image} alt={book.title} style={{ width: '100px' }} />
               ) : (
                 <img src="/" alt="이미지가 없습니다." />
               )}
-            </Link>
+            </a>
             <div>
               <strong dangerouslySetInnerHTML={{ __html: `${book.title}` }} />
               <p dangerouslySetInnerHTML={{ __html: `${book.description}` }} />
