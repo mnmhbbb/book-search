@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { REACT_APP_CLIENT_ID, REACT_APP_CLIENT_SECRET } from '../config';
 
 export async function searchBookAPI(data) {
   try {
