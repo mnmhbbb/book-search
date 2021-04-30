@@ -4,14 +4,17 @@ import { REACT_APP_CLIENT_ID } from 'config';
 
 export async function searchBookAPI(data) {
   try {
-    const response = await axios.get(`/v1/search/book.json?query=${data}&display=5`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'X-Naver-Client-Id': REACT_APP_CLIENT_ID,
-        'X-Naver-Client-Secret': REACT_APP_CLIENT_SECRET,
+    const response = await axios.get(
+      `https://openapi.naver.com/v1/search/book.json?query=${data}&display=5`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'X-Naver-Client-Id': REACT_APP_CLIENT_ID,
+          'X-Naver-Client-Secret': REACT_APP_CLIENT_SECRET,
+        },
       },
-    });
+    );
     return response.data.items;
   } catch (error) {
     console.error(error);
