@@ -36,7 +36,6 @@ const SearchForm = () => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(keyword);
       dispatch(SEARCH_REQUEST(keyword));
       count.current = 1; // 검색결과의 다음페이지를 불러오는 숫자를 초기화
     },

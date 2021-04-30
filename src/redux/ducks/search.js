@@ -19,7 +19,6 @@ const reducers = {
     state.searchbookLoading = false;
     state.searchbookDone = true;
     state.bookList = data;
-    console.log('~bookList는~', state.bookList);
   },
   SEARCH_FAILURE: (state, data) => {
     state.searchbookLoading = false;
