@@ -1,6 +1,9 @@
 # 책 검색 사이트
+<<<<<<< HEAD
 
 - https://mnmhbbb.github.io/book-search/
+=======
+>>>>>>> 5897318a1e06698224d6cbe8f07fc8fbd2126e3f
 - redux toolkit과 오픈 api 사용하는 방법을 공부하기 위한 프로젝트
 - 사용한 기술: `React`, `Redux`, `Toolkit`, `Saga`, `logger`, `antd`, `styled-components`, `http-proxy-middleware` 등
 - 처음 시도하기 때문에 공식문서와 개발자들의 글을 많이 찾아 봤고, 덕분에 많은 공부과 삽질을 할 수 있었다.😅
