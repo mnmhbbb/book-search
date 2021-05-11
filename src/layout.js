@@ -5,7 +5,7 @@ const Global = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  padding: 12rem 0 2rem;
 
   a {
     text-decoration: none;

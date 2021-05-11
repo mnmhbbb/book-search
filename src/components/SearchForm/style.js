@@ -23,8 +23,12 @@ export const InputStyle = styled(Input)`
   align-items: center;
   margin-bottom: 2rem;
   input {
-    font-size: 20px;
+    font-size: 16px;
     margin: 5px;
-    padding: 5px;
+    padding: 0.7rem;
+    border: 1px solid #161616;
+  }
+  input:focus {
+    outline: none;
   }
 `;

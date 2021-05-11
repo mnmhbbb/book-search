@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SearchList from 'components/SearchList';
 import { searchAction } from 'redux/ducks/search';
 import { FormStyle, InputStyle } from './style';
+import Layout from 'layout';
 
 const SearchForm = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const SearchForm = () => {
     function onScroll() {
       if (
         window.scrollY + document.documentElement.clientHeight >
-        document.documentElement.scrollHeight - 10
+        document.documentElement.scrollHeight - 50
       ) {
         if (!loadMoreLoading && bookList.length > 1) {
           count.current += 10;
