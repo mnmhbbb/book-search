@@ -2,7 +2,7 @@ import createSagaMiddleware from 'redux-saga';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import rootReducer from './ducks';
 import rootSaga from './sagas';
-// import logger from 'redux-logger';
+import logger from 'redux-logger';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -10,8 +10,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [...getDefaultMiddleware({ thunk: false }), sagaMiddleware],
-  // middleware: [...getDefaultMiddleware({ thunk: false }), sagaMiddleware, logger],
+  // middleware: [...getDefaultMiddleware({ thunk: false }), sagaMiddleware],
+  middleware: [...getDefaultMiddleware({ thunk: false }), sagaMiddleware, logger],
 });
 
 sagaMiddleware.run(rootSaga);

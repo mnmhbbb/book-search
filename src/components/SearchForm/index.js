@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SearchList from 'components/SearchList';
 import { searchAction } from 'redux/ducks/search';
 import { FormStyle, InputStyle } from './style';
-import Layout from 'layout';
+// import Layout from 'layout';
 
 const SearchForm = () => {
   const dispatch = useDispatch();
@@ -46,16 +46,14 @@ const SearchForm = () => {
   return (
     <>
       <FormStyle onSubmit={onSubmit}>
-        <InputStyle.Group>
-          <InputStyle
-            allowClear
-            value={keyword}
-            size="large"
-            required
-            onChange={onChange}
-            placeholder="책 정보를 입력하세요."
-          />
-        </InputStyle.Group>
+        <InputStyle
+          allowClear
+          value={keyword}
+          size="large"
+          required
+          onChange={onChange}
+          placeholder="책 정보를 입력하세요."
+        />
         {bookList.length !== 0 && <SearchList />}
       </FormStyle>
     </>
